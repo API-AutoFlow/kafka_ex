@@ -727,6 +727,9 @@ defmodule KafkaEx.GenConsumer do
 
     response
     |> handle_fetch_response(state)
+  rescue
+    error ->
+      {:error, error}
   end
 
   defp handle_fetch_response(
